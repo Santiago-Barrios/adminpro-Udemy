@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// RUTAS
+import { APP_ROUTES } from './app.routes';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NopagefoundComponent } from './shered/nopagefound/nopagefound.component';
@@ -24,7 +27,8 @@ import { BreadcrumbsComponent } from './shered/breadcrumbs/breadcrumbs.component
     BreadcrumbsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    APP_ROUTES
   ],
   providers: [],
   bootstrap: [AppComponent]
