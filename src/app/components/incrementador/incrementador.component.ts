@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-incrementador',
@@ -8,11 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncrementadorComponent implements OnInit {
 
-  leyenda: string = 'Leyenda';
-  progreso: number = 50;
-  constructor() { }
+  // tslint:disable-next-line: no-input-rename
+  @Input('nombre') leyenda: string = 'Leyenda';
+  @Input() progreso: number = 50;
+  constructor() {
+    // console.log ('leyenda', this.leyenda);
+    console.log ('progreso', this.progreso);
+  }
 
   ngOnInit(): void {
+    // console.log ('leyenda', this.leyenda);
+    console.log ('progreso', this.progreso);
   }
 
   cambiarValor( valor: number ){
