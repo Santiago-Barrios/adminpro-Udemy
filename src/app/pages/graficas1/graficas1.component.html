@@ -5,11 +5,9 @@
         <div class="card">
             <div class="card-body">
 
+                <h4 class="card-title"> {{ graficos.grafico1.leyenda }} </h4>
 
-                <div style="display: block">
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
-                              </canvas>
-                </div>
+                <app-gafico-dona [chartLabels]="graficos.grafico1.labels" [chartData]="graficos.grafico1.data" chartType="doughnut"></app-gafico-dona>
 
             </div>
         </div>
@@ -20,11 +18,10 @@
         <div class="card">
             <div class="card-body">
 
+                <h4 class="card-title"> {{ graficos.grafico2.leyenda }} </h4>
 
-                <div style="display: block">
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
-                            </canvas>
-                </div>
+
+                <app-gafico-dona [chartLabels]="graficos.grafico2.labels" [chartData]="graficos.grafico2.data" chartType="doughnut"></app-gafico-dona>
 
 
             </div>
@@ -42,11 +39,10 @@
         <div class="card">
             <div class="card-body">
 
+                <h4 class="card-title"> {{ graficos.grafico3.leyenda }} </h4>
 
-                <div style="display: block">
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
-                              </canvas>
-                </div>
+
+                <app-gafico-dona [chartLabels]="graficos.grafico3.labels" [chartData]="graficos.grafico3.data" chartType="doughnut"></app-gafico-dona>
 
 
             </div>
@@ -58,11 +54,10 @@
         <div class="card">
             <div class="card-body">
 
+                <h4 class="card-title"> {{ graficos.grafico4.leyenda }} </h4>
 
-                <div style="display: block">
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
-                            </canvas>
-                </div>
+
+                <app-gafico-dona [chartLabels]="graficos.grafico4.labels" [chartData]="graficos.grafico4.data" chartType="doughnut"></app-gafico-dona>
 
 
             </div>
