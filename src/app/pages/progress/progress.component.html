@@ -27,7 +27,7 @@
             <div class="card-body">
 
 
-                <app-incrementador nombre="Progress azul" (cambioValor)="actualizar( $event )" [progreso]="progreso1"></app-incrementador>
+                <app-incrementador nombre="Progress azul" (cambioValor)="progreso1 = $event " [progreso]="progreso1"></app-incrementador>
 
 
             </div>

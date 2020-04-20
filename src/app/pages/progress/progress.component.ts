@@ -16,8 +16,4 @@ export class ProgressComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  actualizar(event: number){
-    this.progreso1 = event;
-  }
-
 }
