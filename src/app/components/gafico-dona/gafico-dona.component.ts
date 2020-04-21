@@ -14,11 +14,7 @@ export class GaficoDonaComponent implements OnInit {
   @Input() chartData: MultiDataSet = [
     [],
   ];
-  @Input() chartType: ChartType = '';
-
-  backgroundColor: [
-    'rgba(0,0,0,0)',
-  ]
+  @Input() chartType: ChartType = 'doughnut';
 
   constructor() { }
 
