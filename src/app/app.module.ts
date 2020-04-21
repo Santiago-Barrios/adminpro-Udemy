@@ -12,6 +12,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
 
+// Servicios
+import { SettingsService } from './services/settings.service';
+
 // temporal
 import { FormsModule } from '@angular/forms';
 
@@ -28,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     PagesModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
