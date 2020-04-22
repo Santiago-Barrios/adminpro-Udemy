@@ -23,7 +23,6 @@ export class PromesasComponent implements OnInit {
 
   contarTres(): Promise <boolean> {
 
- // tslint:disable-next-line: prefer-const
  return new Promise( (resolve, reject) => {
    // tslint:disable-next-line: prefer-const
    let contador = 0;

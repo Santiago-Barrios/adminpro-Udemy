@@ -19,6 +19,7 @@ import { IncrementadorComponent } from '../components/incrementador/incrementado
 import { GaficoDonaComponent } from '../components/gafico-dona/gafico-dona.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PromesasComponent } from './promesas/promesas.component';
       IncrementadorComponent,
       GaficoDonaComponent,
       AccountSettingsComponent,
-      PromesasComponent
+      PromesasComponent,
+      RxjsComponent
     ],
     exports: [
       PagesComponent,
