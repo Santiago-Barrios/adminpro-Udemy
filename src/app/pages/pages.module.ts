@@ -18,6 +18,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GaficoDonaComponent } from '../components/gafico-dona/gafico-dona.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
       Graficas1Component,
       IncrementadorComponent,
       GaficoDonaComponent,
-      AccountSettingsComponent
+      AccountSettingsComponent,
+      PromesasComponent
     ],
     exports: [
       PagesComponent,
