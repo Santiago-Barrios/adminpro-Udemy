@@ -16,7 +16,7 @@ import { RegisterComponent } from './login/register.component';
 import { ServiceModule } from './services/service.module';
 
 // temporal
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,9 +27,10 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES,
-    PagesModule,
     FormsModule,
+    ReactiveFormsModule,
+    PagesModule,
+    APP_ROUTES,
     ServiceModule
   ],
   providers: [],
