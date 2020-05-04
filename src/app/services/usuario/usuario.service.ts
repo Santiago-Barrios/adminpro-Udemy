@@ -17,6 +17,12 @@ export class UsuarioService {
 
   login( usuario: Usuario, recuerdame: boolean = false ){
 
+    if ( recuerdame ){
+      localStorage.setItem('email', usuario.email);
+    } else {
+      localStorage.removeItem('email');
+    }
+
     const url = URL_SERVICIOS + '/login';
     return this.http.post(url, usuario )
                     .pipe(
