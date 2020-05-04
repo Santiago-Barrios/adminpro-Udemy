@@ -18,7 +18,17 @@ export class UsuarioService {
   login( usuario: Usuario, recuerdame: boolean = false ){
 
     const url = URL_SERVICIOS + '/login';
-    return this.http.post(url, usuario );
+    return this.http.post(url, usuario )
+                    .pipe(
+                     map( (response: any) => {
+
+                      localStorage.setItem( 'id', response.id );
+                      localStorage.setItem( 'token', response.token );
+                      localStorage.setItem( 'usuario', JSON.stringify(response.usuario) );
+
+                      return true;
+                     })
+                    );
 
   }
 
