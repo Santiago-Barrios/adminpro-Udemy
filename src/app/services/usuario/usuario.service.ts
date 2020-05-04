@@ -3,6 +3,9 @@ import { Usuario } from '../../models/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from 'src/app/config/config';
 
+import { map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +19,12 @@ export class UsuarioService {
 
    const url = URL_SERVICIOS + '/usuario';
 
-   return this.http.post( url, usuario );
+   return this.http.post( url, usuario )
+                   .pipe(
+                    map( (response: any) => {
+                      Swal.fire({ title: 'Usuario creado', text: usuario.email, icon: 'success' });
+                      return response.usuario;
+                    })
+                   );
   }
 }

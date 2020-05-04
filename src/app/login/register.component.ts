@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../services/service.index';
 import { Usuario } from '../models/usuario.model';
+import { Router } from '@angular/router';
 
 declare function initPlugins();
 
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
 
-  constructor( public UusuarioService: UsuarioService ) { }
+  constructor( public UusuarioService: UsuarioService,
+               public router: Router) { }
 
   sonIguales( campo1: string, campo2: string){
 
@@ -86,12 +88,7 @@ registrarUsuario(){
   );
 
   this.UusuarioService.crearUsuario( usuario )
-                      .subscribe( response => {
-
-                        console.log(response);
-
-                      });
-
+                      .subscribe( response => this.router.navigate(['/login']));
   }
 }
 
