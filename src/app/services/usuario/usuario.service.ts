@@ -15,6 +15,13 @@ export class UsuarioService {
   console.log('servicio de usuario listo para ser usado');
   }
 
+  login( usuario: Usuario, recuerdame: boolean = false ){
+
+    const url = URL_SERVICIOS + '/login';
+    return this.http.post(url, usuario );
+
+  }
+
   crearUsuario( usuario: Usuario ){
 
    const url = URL_SERVICIOS + '/usuario';
