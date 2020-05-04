@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { UsuarioService } from '../services/service.index';
+import { Usuario } from '../models/usuario.model';
 
 declare function initPlugins();
 
@@ -13,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   forma: FormGroup;
 
-  constructor() { }
+  constructor( public UusuarioService: UsuarioService ) { }
 
   sonIguales( campo1: string, campo2: string){
 
@@ -70,11 +73,24 @@ registrarUsuario(){
   }
 
   if ( this.forma.value.condiciones === false){
-    console.log('Debe aceptar las condiciones');
+    Swal.fire('Importante', 'Debes aceptar las condiciones!', 'warning');
    }
 
   console.log( 'forma válida', this.forma.valid);
   console.log (this.forma.value);
+
+  const usuario = new Usuario(
+    this.forma.value.nombre,
+    this.forma.value.correo,
+    this.forma.value.password,
+  );
+
+  this.UusuarioService.crearUsuario( usuario )
+                      .subscribe( response => {
+
+                        console.log(response);
+
+                      });
 
   }
 }
