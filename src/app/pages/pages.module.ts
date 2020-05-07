@@ -14,6 +14,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 
+// Pipes Module
+import { PipesModule } from '../pipes/pipes.module';
+
 // temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GaficoDonaComponent } from '../components/gafico-dona/gafico-dona.component';
@@ -43,7 +46,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
       SharedModule,
       PAGES_ROUTES,
       FormsModule,
-      ChartsModule
+      ChartsModule,
+      PipesModule
     ]
 })
 

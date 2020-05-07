@@ -8,6 +8,9 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
+// Pipes Modules
+import { PipesModule } from '../pipes/pipes.module';
+
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
   ],
   imports: [
     RouterModule,
-    CommonModule
+    CommonModule,
+    PipesModule
   ]
 })
 
