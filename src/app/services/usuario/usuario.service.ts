@@ -112,8 +112,18 @@ export class UsuarioService {
 
     url += '?token=' + this.token;
 
-    console.log (url);
+    // console.log (url);
 
-    return this.http.put(url, usuario);
+    return this.http.put(url, usuario)
+                    .pipe(
+                      map( (response: any) => {
+                        // this.usuario = response.usuario;
+                        const usuarioDB: Usuario = response.usuario;
+                        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+                        Swal.fire({ title: 'Usuario actualizado', text: usuario.nombre, icon: 'success' });
+
+                        return true;
+                      })
+                    );
   }
 }

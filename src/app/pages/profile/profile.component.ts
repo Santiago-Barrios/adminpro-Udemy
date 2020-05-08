@@ -26,12 +26,12 @@ export class ProfileComponent implements OnInit {
     console.log( usuario );
 
     this.usuario.nombre = usuario.nombre;
-    this.usuario.email = usuario.email;
+    if (!this.usuario.google){
+      this.usuario.email = usuario.email;
+    }
 
     this.UusuarioService.actualizarUsuario( this.usuario )
-                        .subscribe( response => {
-                        console.log( response );
-                        });
+                        .subscribe();
 
 
   }
