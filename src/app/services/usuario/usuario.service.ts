@@ -132,11 +132,15 @@ export class UsuarioService {
 
   }
 
-  cambiarImagenn( archivo: File, id: string  ){
+  cambiarImagen( archivo: File, id: string  ){
 
     this.SsubirArchivoService.subirArchivo( archivo, 'usuarios', id )
-        .then ( response => {
+        .then ( (response: any) => {
           console.log(response);
+          this.usuario.img = response.usuario.img;
+          Swal.fire({ title: 'Imagen Actualizada', text: this.usuario.nombre, icon: 'success' });
+
+          this.guardarStorage(id, this.token, this.usuario);
         })
         .catch( response => {
         console.log( response);
