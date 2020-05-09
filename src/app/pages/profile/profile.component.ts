@@ -11,6 +11,7 @@ import { UsuarioService } from '../../services/service.index';
 export class ProfileComponent implements OnInit {
 
   usuario: Usuario;
+  imagenSubir: File;
 
   constructor( public UusuarioService: UsuarioService ) {
 
@@ -35,4 +36,23 @@ export class ProfileComponent implements OnInit {
 
 
   }
+
+  seleccionImage(archivo: File){
+
+    if (!archivo){
+    this.imagenSubir = null;
+    return;
+    }
+
+    this.imagenSubir = archivo;
+
+    // console.log(archivo);
+  }
+
+  cambiarImagen(){
+
+    this.UusuarioService.cambiarImagenn( this.imagenSubir, this.usuario._id );
+
+  }
+
 }
