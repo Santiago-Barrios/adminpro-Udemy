@@ -112,7 +112,7 @@ export class UsuarioService {
 
   actualizarUsuario( usuario: Usuario ){
 
-    let url = URL_SERVICIOS + '/usuario/' +  usuario._id;
+    let url = URL_SERVICIOS + '/usuario/' +  usuario.id_usuario;
 
     url += '?token=' + this.token;
 
@@ -123,7 +123,7 @@ export class UsuarioService {
                       map( (response: any) => {
                         // this.usuario = response.usuario;
                         const usuarioDB: Usuario = response.usuario;
-                        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+                        this.guardarStorage(usuarioDB.id_usuario, this.token, usuarioDB);
                         Swal.fire({ title: 'Usuario actualizado', text: usuario.nombre, icon: 'success' });
 
                         return true;
