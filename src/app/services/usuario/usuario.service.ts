@@ -20,7 +20,7 @@ export class UsuarioService {
                public router: Router,
                public SsubirArchivoService: SubirArchivoService
                ) {
-  console.log('servicio de usuario listo para ser usado');
+  // console.log('servicio de usuario listo para ser usado');
   this.cargarStorage();
   }
 

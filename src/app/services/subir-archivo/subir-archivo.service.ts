@@ -20,7 +20,6 @@ export class SubirArchivoService {
     if (archivo){
       formData.append( 'imagen', archivo, archivo.name );
     }
-    console.log(id);
 
     const url = URL_SERVICIOS + '/upload/' + tipo + '/' + id;
 
