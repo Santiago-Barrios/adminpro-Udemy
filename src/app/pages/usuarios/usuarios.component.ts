@@ -3,7 +3,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from '../../services/service.index';
 
 import Swal from 'sweetalert2';
-import { GuardsCheckStart } from '@angular/router';
+import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
 
 
 @Component({
@@ -20,10 +20,22 @@ export class UsuariosComponent implements OnInit {
 
   totalRegistros: number = 0;
 
-  constructor( public UusuarioService: UsuarioService ) { }
+  constructor( public UusuarioService: UsuarioService,
+               public MmodalUploadService: ModalUploadService
+    ) { }
 
   ngOnInit(): void {
     this.cargarUsuario();
+
+    this.MmodalUploadService.notificacion.subscribe( res => {
+          this.cargarUsuario();
+    });
+
+  }
+
+  mostrarModal( id: string ){
+    // console.log(id);
+    this.MmodalUploadService.mostrarModal( 'usuarios', id );
   }
 
 
