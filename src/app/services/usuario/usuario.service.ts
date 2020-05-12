@@ -166,4 +166,27 @@ export class UsuarioService {
 
   }
 
+  borrarUsuario( id: string ){
+
+    let url = URL_SERVICIOS + '/usuario/' + id;
+    url += '?token=' + this.token;
+
+    return this.http.delete( url )
+                    .pipe(
+                      map( response => {
+                        if (response){
+                        Swal.fire(
+                          'Borrado!',
+                          'El usuario ha sido eliminado correctamente',
+                          'success'
+                        );
+                        }
+                        return true;
+                      })
+                    );
+
+
+
+  }
+
 }
