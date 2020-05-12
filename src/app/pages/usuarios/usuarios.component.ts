@@ -3,6 +3,7 @@ import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from '../../services/service.index';
 
 import Swal from 'sweetalert2';
+import { GuardsCheckStart } from '@angular/router';
 
 
 @Component({
@@ -110,6 +111,13 @@ export class UsuariosComponent implements OnInit {
       }
     });
 
+
+  }
+
+  guardarUsuario( usuario: Usuario ){
+    console.log( usuario );
+    this.UusuarioService.actualizarUsuario( usuario )
+                        .subscribe();
   }
 
 }

@@ -121,9 +121,12 @@ export class UsuarioService {
     return this.http.put(url, usuario)
                     .pipe(
                       map( (response: any) => {
-                        // this.usuario = response.usuario;
-                        const usuarioDB: Usuario = response.usuario;
-                        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+
+                        if (usuario._id === this.usuario._id){
+                          const usuarioDB: Usuario = response.usuario;
+                          this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+                        }
+
                         Swal.fire({ title: 'Usuario actualizado', text: usuario.nombre, icon: 'success' });
 
                         return true;
