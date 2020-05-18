@@ -68,7 +68,7 @@ export class ModalUploadComponent implements OnInit {
     this.SsubirArchivoService.subirArchivo( this.imagenSubir, this.MmodalUploadService.tipo, this.MmodalUploadService.id  )
                               .then( resp => {
 
-                              // console.log(resp);
+                              console.log(resp);
                               this.MmodalUploadService.notificacion.emit( resp );
                               this.cerrarModal();
 
