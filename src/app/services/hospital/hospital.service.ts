@@ -17,6 +17,13 @@ export class HospitalService {
   constructor( public http: HttpClient,
                public UusuarioService: UsuarioService  ) { }
 
+    cargarHospitalesD(desde: number = 0){
+
+    const url = URL_SERVICIOS + '/hospital?desde=' + desde;
+    return this.http.get( url );
+
+  }
+
   cargarHospitales(){
 
     const url = URL_SERVICIOS + '/hospital';
@@ -50,14 +57,14 @@ export class HospitalService {
 
     return this.http.delete( url )
                     .pipe(
-                      map( response => Swal.fire({ title: 'Hospital borrado', text: 'Eliminado Correcttamente', icon: 'success' }))
+                      map( response => Swal.fire({ title: 'Hospital borrado', text: 'Eliminado Correctamente', icon: 'success' }))
                     );
   }
 
   crearHospital( nombre: string ){
 
-    let url = URL_SERVICIOS + '/hodpital';
-    url += 'token?=' + this.UusuarioService.token;
+    let url = URL_SERVICIOS + '/hospital';
+    url += '?token=' + this.UusuarioService.token;
 
     return this.http.post( url, {nombre} )
                     .pipe(
@@ -83,7 +90,12 @@ export class HospitalService {
 
     return this.http.put( url, hospital )
                     .pipe(
-                      map( (response: any) => response.hospital)
+                      map( (response: any) => {
+
+                        Swal.fire({ title: 'Hospital actualizado', text: hospital.nombre + ' actualizado Correctamente', icon: 'success' });
+
+                        return response.hospital;
+                      })
                     );
 
   }
