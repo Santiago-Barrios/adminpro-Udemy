@@ -30,4 +30,16 @@ export class MedicosComponent implements OnInit {
 
   }
 
+  buscarMedico( termino: string ){
+
+    if (termino.length <= 0){
+
+      this.cargarMedicos();
+      return;
+    }
+
+    this.MmedicoService.buscarMedicos(termino)
+                       .subscribe( medicos => this.medicos = medicos  );
+  }
+
 }
