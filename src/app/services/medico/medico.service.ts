@@ -65,4 +65,21 @@ export class MedicoService {
                     );
 
   }
+
+  guardarMedico(medico: Medico ){
+
+    let url = URL_SERVICIOS + '/medico';
+
+    url += '?token=' + this.UusuarioService.token;
+
+    return this.http.post( url, medico )
+             .pipe(
+               map( (response: any) => {
+
+                Swal.fire( 'Médico Creado', medico.nombre, 'success' );
+                return response.medico;
+
+              })
+             );
+  }
 }
