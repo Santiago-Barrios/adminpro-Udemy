@@ -9,6 +9,7 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuardGuard } from '../services/guards/login-guard.guard';
 
+import { BusquedaComponent } from './busqueda/busqueda.component';
 import { ProfileComponent } from './profile/profile.component';
 
 // Mantenimiento
@@ -32,6 +33,7 @@ const pagesRoutes: Routes = [
         { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' } },
         { path: 'account-settings', component: AccountSettingsComponent,  data: { titulo: 'Ajustes del Tema' } },
         { path: 'perfil', component: ProfileComponent,  data: { titulo: 'Perfil de usuario' } },
+        { path: 'busqueda/:termino', component: BusquedaComponent,  data: { titulo: 'Buscador' } },
         // Mantenimientos
         { path: 'usuarios', component: UsuariosComponent,  data: { titulo: 'Mantenimiento de Usuarios' } },
         { path: 'hospitales', component: HospitalesComponent,  data: { titulo: 'Mantenimiento de Hospitales' } },
