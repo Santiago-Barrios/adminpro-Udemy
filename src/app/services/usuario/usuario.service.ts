@@ -4,9 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from 'src/app/config/config';
 
 import { map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -101,6 +103,12 @@ export class UsuarioService {
                       this.guardarStorage( response.id, response.token, response.usuario, response.menu );
 
                       return true;
+                     }),
+                     catchError( err => {
+                      Swal.fire('Error en el login', err.error.mensaje, 'error' );
+                      // console.log(err.error.mensaje);
+                      return throwError( err );
+
                      })
                     );
 
@@ -115,7 +123,13 @@ export class UsuarioService {
                     map( (response: any) => {
                       Swal.fire({ title: 'Usuario creado', text: usuario.email, icon: 'success' });
                       return response.usuario;
-                    })
+                    }),
+                    catchError( err => {
+                      Swal.fire(err.error.mensaje, err.error.errors.message, 'error' );
+                      // console.log(err.error.mensaje);
+                      return throwError( err );
+
+                      })
                    );
   }
 
@@ -139,7 +153,13 @@ export class UsuarioService {
                         Swal.fire({ title: 'Usuario actualizado', text: usuario.nombre, icon: 'success' });
 
                         return true;
-                      })
+                      }),
+                      catchError( err => {
+                        Swal.fire(err.error.mensaje, err.error.errors.message, 'error' );
+                        // console.log(err.error.mensaje);
+                        return throwError( err );
+
+                        })
                     );
 
   }
