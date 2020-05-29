@@ -13,3 +13,5 @@ export { UsuarioService } from './usuario/usuario.service';
 
 export { LoginGuardGuard } from './guards/login-guard.guard';
 export { AndminGuard } from './guards/andmin.guard';
+export { VerificaTokenGuard } from './guards/verifica-token.guard';
+

@@ -13,7 +13,8 @@ import {
   LoginGuardGuard,
   SubirArchivoService,
   HospitalService,
-  MedicoService
+  MedicoService,
+  VerificaTokenGuard
  } from './service.index';
 
 @NgModule({
@@ -33,6 +34,7 @@ import {
     ModalUploadService,
     HospitalService,
     MedicoService,
+    VerificaTokenGuard,
   ]
 })
 export class ServiceModule { }
