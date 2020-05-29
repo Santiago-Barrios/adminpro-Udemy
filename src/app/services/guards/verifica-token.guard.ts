@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router } from '@angular/router';
 import { UsuarioService } from '../usuario/usuario.service';
 
 @Injectable({
@@ -8,7 +7,8 @@ import { UsuarioService } from '../usuario/usuario.service';
 })
 export class VerificaTokenGuard implements CanActivate {
 
-  constructor( public UusuarioService: UsuarioService  ) { }
+  constructor( public UusuarioService: UsuarioService,
+               public router: Router ) { }
 
   canActivate(): Promise<boolean> | boolean {
 
@@ -22,6 +22,7 @@ export class VerificaTokenGuard implements CanActivate {
 
     if ( expirado ){
 
+      this.router.navigate(['./login']);
       return false;
 
     }
@@ -52,6 +53,7 @@ export class VerificaTokenGuard implements CanActivate {
               resolve(true);
             }, () => {
               reject(false);
+              this.router.navigate(['./login']);
             });
 
       }
